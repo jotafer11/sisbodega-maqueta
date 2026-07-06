@@ -138,10 +138,17 @@ function guardar(event) {
 
     const registro = {
 
+        grupo_id: grupo.value,        
         grupo: grupo.options[grupo.selectedIndex].text,
+
+        marca_id: marca.value,        
         marca: marca.options[marca.selectedIndex].text,
+
+        matriz_id: matriz.value,        
         matriz: matriz.options[matriz.selectedIndex].text,
+
         descripcion: descripcion.value,
+
         stock: stock.value        
 
     };
@@ -181,8 +188,6 @@ function guardar(event) {
 
     descripcion.value = "";
 
-    mostrarSnackbar("Repuesto creado");    
-
 }
 
 document
@@ -205,23 +210,23 @@ function listar() {
         tbody.innerHTML += `
 
             <tr>
-
                 <td>${registro.grupo}</td>
                 <td>${registro.marca}</td>
                 <td>${registro.matriz}</td>
                 <td>${registro.descripcion}</td>
                 <td>${registro.stock}</td>
-<td>
 
-    <button onclick="editar(${index})">
-        Editar
-    </button>
+            <td>
 
-    <button onclick="eliminar(${index})">
-        Eliminar
-    </button>
+                <button onclick="editar(${index})">
+                    Editar
+                </button>
 
-</td>
+                <button onclick="eliminar(${index})">
+                    Eliminar
+                </button>
+
+            </td>
                                 
             </tr>
 
@@ -247,7 +252,7 @@ function mostrarSnackbar(mensaje){
 
 }
 
-function editar(index){
+async function editar(index){
 
     const registros =
         JSON.parse(localStorage.getItem("repuestos")) || [];
@@ -256,12 +261,23 @@ function editar(index){
 
     indiceEditar = index;
 
-    document.getElementById("descripcion").value = repuesto.descripcion;
+    // Grupo
+    document.getElementById("grupo").value = repuesto.grupo_id;
 
+    // Marca
+    document.getElementById("marca").value = repuesto.marca_id;
+
+    // Cargar matrices de esa marca
+    await cargarMatrices(repuesto.marca_id);
+
+    // Seleccionar la matriz
+    document.getElementById("matriz").value = repuesto.matriz_id;
+
+    // Actualizar descripción
+    actualizarDescripcion();
+
+    // Stock
     document.getElementById("stock").value = repuesto.stock;
-
-    // después podremos seleccionar automáticamente
-    // grupo, marca y matriz.
 
 }
 
