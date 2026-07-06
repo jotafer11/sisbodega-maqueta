@@ -1,0 +1,37 @@
+## Prompt para la creación de la aplicación web SisBodega (Demo)
+
+Crea una aplicacion web CRUD con Javascript llamada SisBodega que inserte y gestione repuestos.
+
+**Requisitos:**
+
+    **Tecnologia: Html, Javascript, Bootstrap 4
+
+-----
+
+### UI:
+
+    **Area principal **
+    - Tabla Bootstrap 4 para listar
+    - Formulario reactivo para crear y editar
+    - Botones para editar y eliminar
+    - Mensajes simples con snackbar
+
+
+-----
+
+
+### Datos:
+
+    * Guarda los datos usando localstorage
+    * Para llenar los elementos <select>, lee los datos adjuntos en @grupos.json y @marcas.json. Haz que un script que cargue estos datos dinámicamente."    
+
+
+
+-----    
+
+
+### Instrucciones para el modelo:
+
+
+### Calidad:
+

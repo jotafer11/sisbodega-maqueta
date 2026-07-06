@@ -1,0 +1,30 @@
+[
+  { 
+    "id": 101,
+    "marca_id": 1,
+    "modelo": "Versa",
+    "motor": "2.3",
+    "año": "2005"
+  },
+  {
+    "id": 102,
+    "marca_id": 1,
+    "modelo": "Sentra",
+    "motor": "1.8",
+    "año": "2010"
+  },
+  {
+    "id": 201,
+    "marca_id": 2,
+    "modelo": "Terrano",
+    "motor": "2.4",
+    "año": "2005"
+  },
+  {
+    "id": 301,
+    "marca_id": 3,
+    "modelo": "Vitara",
+    "motor": "1.4",
+    "año": "2010"
+  }
+]

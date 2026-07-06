@@ -1,0 +1,34 @@
+[
+    {
+        "id": 100,
+        "nombre": "Culata Completa"
+    },
+    {
+        "id": 101,
+        "nombre": "Culata Sola"
+    },
+    {
+        "id": 102,
+        "nombre": "Válvula Admisión"
+    },
+    {
+        "id": 103,
+        "nombre": "Válvula Escape"
+    },
+    {
+        "id": 104,
+        "nombre": "Sellos Válvula"
+    },
+    {
+        "id": 105,
+        "nombre": "Válvula Admisión"
+    },
+    {
+        "id": 106,
+        "nombre": "Válvula Escape"
+    },
+    {
+        "id": 107,
+        "nombre": "Sellos Válvula"
+    }    
+]
