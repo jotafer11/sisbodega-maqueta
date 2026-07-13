@@ -1,0 +1,47 @@
+Ejemplo:
+Analiza la pagina @ingreso.html,
+permite que pueda cambiar entre light mode y dark mode (el actual)
+y aparte agrega secciones que puedan ser utiles.
+
+
+
+1.
+Lee primero el archivo CONTEXT.md de la raíz para entender mi flujo de trabajo. Basándote en eso, haz la siguiente mejora
+Analiza la pagina @ingreso.html,
+permite que pueda guardar compras, con la funcion guardar_compra en @ingresos.js
+con todos los campos que tiene la tabla.
+parecido a la pagina @ingresos.html con la funcion guardar en @app.js.
+tambien crea la funcion @listar_compras, su llave primaria sera numero_compra, que se mostrara en la tabla en el campo codigo.
+en el campo acciones, agrega el boton "Normalizar pedido"
+
+
+
+2.
+con la revision a la vista de compras:
+
+mejoras para @ingresos.html:
+no se cree ningun repuesto automaticamente, ya lo corregi en el context.md
+
+
+mejoras para la pagina de @normalizacion.html,
+que no se liste ningún "# Ing", que no haya registros duplicados, solo cuando el usuario de click en guardar luego de normalizar.
+
+
+
+3.
+Trabajaremos en el archivo @index.html
+Lee el archivo CONTEXT.md, el punto 5 para entender que hara esta pagina.
+1. Agrega un cuadro de texto donde se ingresara una busqueda de repuestos.
+2. Crea la funcion listar_repuestos donde se cargaran todos los repuestos, en la tabla de abajo, en Acciones agrega los botones Ver y Editar.
+Mas adelante el boton editar permitira agregarle anotaciones de numero de pieza y de marca a los repuestos, como la procedencia.
+
+
+
+
+4.
+Trabajaremos en el archivo @index.html
+Que el boton editar abra un modal donde se abre un formulario de titulo "Anotaciones".
+Este formulario tendrá:
+1. Textbox donde llenara Procedencia del repuesto
+2. Textarea area donde registrara anotaciones de numeros de pieza
+2. Textarea area donde registrara anotaciones de marca

@@ -1,0 +1,86 @@
+        <section class="contenedor-principal">
+            <div class="contenedor listado inicio">
+                <div class="inicio-hero">
+                    <img src="src/img/logo.png" class="img_logo" alt="Logo">
+
+                    <div class="fila busqueda">
+                        <label for="busquedaRepuesto">Buscar repuesto</label>
+                        <input
+                            type="text"
+                            id="busquedaRepuesto"
+                            placeholder="Busca por numero de pieza, marca, procedencia o descripcion"
+                            autocomplete="off"
+                        >
+                    </div>
+                </div>
+
+                <table id="tablaRepuestos">
+                    <thead>
+                        <tr>
+                            <th>N° Ingr</th>
+                            <th>Marca</th>
+                            <th>Producto</th>
+                            <th>Descripcion Interno</th>
+                            <th>$ Venta</th>                            
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </div>
+
+  
+        </section>
+
+
+    <div id="modalDetalleRepuesto" class="modal-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="detalleRepuestoTitulo">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="detalleRepuestoTitulo">Detalle del repuesto</h2>
+                <button type="button" class="modal-close" data-close-modal="modalDetalleRepuesto">×</button>
+            </div>
+
+            <div id="detalleRepuestoContenido" class="modal-contenido"></div>
+        </div>
+    </div>
+
+    <div id="modalEditarRepuesto" class="modal-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="editarRepuestoTitulo">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="editarRepuestoTitulo">Editar detalle del Repuesto</h2>
+                <button type="button" class="modal-close" data-close-modal="modalEditarRepuesto">×</button>
+            </div>
+
+            <form id="frmEditarRepuesto">
+                <input type="hidden" id="editarIndiceRepuesto">
+
+                <div class="fila">
+                    <label for="editarOrigenRepuesto">Origen del repuesto</label>
+                    <select id="editarOrigenRepuesto" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Brasil">Brasil</option>
+                        <option value="China">China</option>
+                        <option value="Multi Origen">Multi Origen</option>
+                    </select>
+                </div>
+
+                <div class="fila">
+                    <label for="editarAnotacionesRepuesto">Anotaciones de numero de pieza</label>
+                    <textarea id="editarAnotacionesRepuesto" rows="4" placeholder="Registra numeros de pieza, equivalencias o referencias"></textarea>
+                </div>
+
+                <div class="fila">
+                    <label for="editarAnotacionesMarca">Anotaciones de marca del automovil</label>
+                    <textarea id="editarAnotacionesMarca" rows="4" placeholder="Registra marcas compatibles o notas de aplicacion"></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="boton-secundario" data-close-modal="modalEditarRepuesto">Cancelar</button>
+                    <button type="submit">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>        
+   

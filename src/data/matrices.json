@@ -9,14 +9,14 @@
   {
     "id": 102,
     "marca_id": 1,
-    "modelo": "Sentra",
+    "modelo": "Terrano",
     "motor": "1.8",
     "año": "2010"
   },
   {
     "id": 201,
     "marca_id": 2,
-    "modelo": "Terrano",
+    "modelo": "Hilux",
     "motor": "2.4",
     "año": "2005"
   },
@@ -26,5 +26,33 @@
     "modelo": "Vitara",
     "motor": "1.4",
     "año": "2010"
-  }
+  },
+  {
+    "id": 601,
+    "marca_id": 6,
+    "modelo": "Accent",
+    "motor": "1.4",
+    "año": "2012"
+  },
+  {
+    "id": 801,
+    "marca_id": 9,
+    "modelo": "Gol 1600",
+    "motor": "1.6",
+    "año": "1984"
+  },      
+  {
+    "id": 802,
+    "marca_id": 9,
+    "modelo": "Gol 1800",
+    "motor": "1.9",
+    "año": "2012"
+  },     
+  {
+    "id": 803,
+    "marca_id": 9,
+    "modelo": "Gol",
+    "motor": "1.6",
+    "año": "2012"
+  }    
 ]

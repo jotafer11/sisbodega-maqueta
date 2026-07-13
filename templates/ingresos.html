@@ -1,0 +1,93 @@
+        <section class="contenedor-principal">
+            <div class="contenedor formulario">
+                <h2>Ingreso de compras</h2>
+
+                <form id="frmIngreso">
+                    <div class="fila">
+                        <label>N° Ing.</label>
+                        <input
+                            type="text"
+                            id="codigo"
+                            readonly
+                        >
+                    </div>
+
+                    <div class="fila">
+                        <label>Producto</label>
+                        <input
+                            type="text"
+                            id="producto"
+                            required
+                        >
+                    </div>                    
+
+                    <div class="fila">
+                        <label>Descripcion</label>
+                        <input
+                            type="text"
+                            id="descripcion"
+                            required
+                        >
+                    </div>
+
+                    <div class="fila">
+                        <label>Unidades Solicitadas</label>
+                        <input
+                            type="number"
+                            id="stock"
+                            value="1"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="fila">
+                        <label>Proveedor</label>
+                        <select id="proveedor" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Refax">Refax</option>
+                            <option value="Proveedor 2">Proveedor 2</option>
+                            <option value="Proveedor 3">Proveedor 3</option>
+                        </select>
+                    </div>
+
+                    <div class="fila">
+                        <label>$ Venta</label>
+                        <input
+                            type="number"
+                            id="precio_venta"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit">
+                        Guardar compra
+                    </button>
+                </form>
+            </div>
+
+            <div class="contenedor listado">
+                <h2>Ultimas compras</h2>
+
+                <table id="tablaCompras">
+                    <thead>
+                        <tr>
+                            <th>N° Ing</th>
+                            <th>Producto</th>
+                            <th>Descripcion</th>
+                            <th>Und</th>
+                            <th>Proveedor</th>
+                            <th>$ Venta</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>      
+
+
+    <script src="/js/ingresar.js"></script>              
