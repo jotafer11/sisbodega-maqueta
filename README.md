@@ -15,6 +15,7 @@ CRUD Demo de un sistema de bodega para un taller rectificador de culatas. (repue
 
 - VSCode
 - Live Server
+- .
 
 ### Instalacion
 
