@@ -116,6 +116,9 @@ function listar_compras() {
                     <button onclick="normalizarPedido(${compra.numero_compra})">
                         Normalizar pedido
                     </button>
+                    <button onclick="eliminarCompra(${compra.numero_compra})">
+                        Eliminar
+                    </button>
                 </td>
             </tr>
         `;
@@ -154,4 +157,24 @@ function mostrarSnackbar(mensaje) {
     setTimeout(() => {
         snackbar.classList.remove("show");
     }, 2500);
+}
+
+function eliminarCompra(numeroCompra) {
+    if (!confirm("¿Eliminar esta compra?")) {
+        return;
+    }
+
+    const compras = obtenerCompras().filter(compra => {
+        return String(compra.numero_compra) !== String(numeroCompra);
+    });
+
+    guardarCompras(compras);
+
+    const pedidoPendiente = JSON.parse(localStorage.getItem("pedido_normalizacion"));
+    if (pedidoPendiente && String(pedidoPendiente.numero_compra) === String(numeroCompra)) {
+        localStorage.removeItem("pedido_normalizacion");
+    }
+
+    listar_compras();
+    mostrarSnackbar("Compra eliminada");
 }

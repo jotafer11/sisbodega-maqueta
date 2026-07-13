@@ -60,6 +60,7 @@ function cargarPedidoPendiente() {
     const stock = document.getElementById("stock");
     const producto = document.getElementById("producto");
     const precioVenta = document.getElementById("precio_venta");
+    const numeroCompra = document.getElementById("numero_compra");
 
     if (descripcion && pedidoPendiente.descripcion) {
 
@@ -82,6 +83,12 @@ function cargarPedidoPendiente() {
     if (precioVenta && pedidoPendiente.precio_venta !== undefined) {
 
         precioVenta.value = pedidoPendiente.precio_venta;
+
+    }
+
+    if (numeroCompra && pedidoPendiente.numero_compra !== undefined) {
+
+        numeroCompra.value = pedidoPendiente.numero_compra;
 
     }
 
@@ -109,6 +116,7 @@ async function cargarRepuestoEdicion() {
     const stock = document.getElementById("stock");
     const producto = document.getElementById("producto");
     const precioVenta = document.getElementById("precio_venta");
+    const numeroCompra = document.getElementById("numero_compra");
 
     if (grupo && repuesto.grupo_id) {
         grupo.value = repuesto.grupo_id;
@@ -137,6 +145,10 @@ async function cargarRepuestoEdicion() {
 
     if (precioVenta && repuesto.precio_venta !== undefined) {
         precioVenta.value = repuesto.precio_venta;
+    }
+
+    if (numeroCompra && repuesto.numero_compra !== undefined) {
+        numeroCompra.value = repuesto.numero_compra;
     }
 
 }
@@ -262,14 +274,15 @@ function guardar(event) {
     const descripcion = document.getElementById("descripcion");
     const stock = document.getElementById("stock");    
     const precioVenta = document.getElementById("precio_venta");
+    const numeroCompraInput = document.getElementById("numero_compra");
 
-    if (!grupo || !marca || !matriz || !producto || !descripcion || !stock || !precioVenta) {
+    if (!grupo || !marca || !matriz || !producto || !descripcion || !stock || !precioVenta || !numeroCompraInput) {
         return;
     }
 
     const numeroCompra = pedidoPendiente
         ? Number(pedidoPendiente.numero_compra) || null
-        : Number(repuestoEnEdicion?.numero_compra) || null;
+        : Number(numeroCompraInput.value || repuestoEnEdicion?.numero_compra) || null;
 
     const grupoTexto = grupo.options[grupo.selectedIndex]?.text || "";
     const marcaTexto = marca.options[marca.selectedIndex]?.text || "";
@@ -289,7 +302,7 @@ function guardar(event) {
         matriz: matrizTexto,
 
         producto: producto.value,
-        precio_venta: precioVenta?.value || "",
+        precio_venta: precioVenta.value || "",
 
         descripcion: descripcion.value,
 
@@ -430,14 +443,19 @@ async function editar(index){
     }
 
     indiceEditar = index;
+    repuestoEnEdicion = repuesto;
 
     // Grupo
     const grupo = document.getElementById("grupo");
     const marca = document.getElementById("marca");
     const matriz = document.getElementById("matriz");
     const stock = document.getElementById("stock");
+    const producto = document.getElementById("producto");
+    const descripcion = document.getElementById("descripcion");
+    const precioVenta = document.getElementById("precio_venta");
+    const numeroCompra = document.getElementById("numero_compra");
 
-    if (!grupo || !marca || !matriz || !stock) {
+    if (!grupo || !marca || !matriz || !stock || !producto || !descripcion || !precioVenta || !numeroCompra) {
         return;
     }
 
@@ -451,6 +469,10 @@ async function editar(index){
 
     // Seleccionar la matriz
     matriz.value = repuesto.matriz_id;
+    producto.value = repuesto.producto || "";
+    descripcion.value = repuesto.descripcion || "";
+    precioVenta.value = repuesto.precio_venta ?? "";
+    numeroCompra.value = repuesto.numero_compra ?? "";
 
     // Actualizar descripción
     actualizarDescripcion();

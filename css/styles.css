@@ -77,11 +77,11 @@ h2 {
 }
 
 .contenedor.formulario {
-  flex: 0 0 25%; /* Ocupa 4 de 12 columnas */
+  flex: 0 0 20%; /* Ocupa 4 de 12 columnas */
 }
 
 .contenedor.listado {
-  flex: 0 0 75%; /* Ocupa 8 de 12 columnas */
+  flex: 0 0 80%; /* Ocupa 8 de 12 columnas */
 }
 
 .contenedor.listado.inicio {
