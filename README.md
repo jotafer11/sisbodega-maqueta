@@ -37,13 +37,5 @@ npm install en la terminal para que Node.js lea el archivo package.json y descar
 
 ```
 
-├── apps/
-│   ├── api/        # Fastify (REST API)
-│   ├── web/        # Next.js (landing + dashboard)
-│   └── mobile/     # Expo (iOS + Android)
-├── packages/
-│   ├── db/         # Drizzle schema + migraciones
-│   ├── types/      # Tipos TypeScript compartidos
-│   └── config/     # ESLint, tsconfig base
 
 
