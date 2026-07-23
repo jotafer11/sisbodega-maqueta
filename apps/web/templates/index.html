@@ -1,5 +1,36 @@
         <section class="contenedor-principal">
             <div class="contenedor listado inicio">
+
+                <!-- Barra superior -->
+                <div class="barra-superior">
+
+                    <div class="barra-iconos">
+
+                        <a href="#modelos"> 
+                            <button class="btn-barra" title="">
+                                <i class="fa-solid fa-car"></i>
+                            </button>
+                        </a>
+                        
+                        <a href="#proveedor">                        
+                            <button class="btn-barra" title="">
+                                <i class="fa-solid fa-user"></i>
+                            </button>
+                        </a>
+
+                        <button class="btn-barra" title="Info">
+                            <i class="fa-solid fa-info"></i>
+                        </button>
+
+                        <button class="btn-barra" title="">
+                            <i class="fa-solid fa-message"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+        
+        
                 <div class="inicio-hero">
                     <img src="src/img/logo.png" class="img_logo" alt="Logo">
 
@@ -17,12 +48,11 @@
                 <table id="tablaRepuestos">
                     <thead>
                         <tr>
-                            <th>N° Ingr</th>
-                            <th>Marca</th>
-                            <th>Producto</th>
-                            <th>Descripcion Interno</th>
-                            <th>$ Venta</th>                            
-                            <th>Stock</th>
+                            <th>Codigo</th>
+                            <th>OEM</th>
+                            <th>Descripcion</th>
+                            <th>$ Neto</th>                              
+                            <th>$ + IVA</th>                            
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -66,6 +96,18 @@
                     </select>
                 </div>
 
+                <div class="fila fila-grid fila-grid-2">
+                    <div class="campo">
+                        <label for="editarPrecioNetoRepuesto">$ Neto</label>
+                        <input type="number" id="editarPrecioNetoRepuesto" min="0" step="0.01">
+                    </div>
+
+                    <div class="campo">
+                        <label for="editarPrecioVentaRepuesto">$ Venta</label>
+                        <input type="number" id="editarPrecioVentaRepuesto" min="0" step="0.01">
+                    </div>
+                </div>
+
                 <div class="fila">
                     <label for="editarAnotacionesRepuesto">Anotaciones de numero de pieza</label>
                     <textarea id="editarAnotacionesRepuesto" rows="4" placeholder="Registra numeros de pieza, equivalencias o referencias"></textarea>
@@ -82,5 +124,84 @@
                 </div>
             </form>
         </div>
-    </div>        
+    </div>
+    
+<style>
+    
+.barra-superior {
+
+    width:100%;
+    height:55px;
+
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+
+    padding:0 18px;
+
+    background:#f6f6f6;
+    border-bottom:1px solid #d8d8d8;
+    border-radius:8px 8px 0 0;
+
+    margin-bottom:25px;
+}
+
+.barra-iconos {
+    display:flex;
+    gap:10px;
+}
+
+.barra-iconos a{
+    text-decoration: none; 
+    color: inherit;   
+}
+.btn-barra {
+
+    width:42px;
+    height:42px;
+
+    border:1px solid #d5d5d5;
+    background:white;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.2s;
+}
+
+.btn-barra i {
+
+    font-size:18px;
+    color:#3b3b3b;
+
+}
+
+.btn-barra:hover {
+
+    background:#134071;
+    border-color:#134071;
+    transform:translateY(-2px);
+
+}
+
+.btn-barra:hover i {
+
+    color:white;
+
+}
+
+.btn-barra:active {
+
+    transform:scale(.95);
+
+}    
+
+
+
+</style>
    

@@ -92,12 +92,11 @@ function listar_repuestos() {
     registros.forEach(({ repuesto, indice }) => {
         tbody.innerHTML += `
             <tr>
-                <td>${repuesto.numero_compra || ""}</td>
-                <td>${repuesto.marca || ""}</td>
-                <td>${repuesto.producto || ""}</td>
+                <td></td>
+                <td>${repuesto.oem}</td>                            
                 <td>${repuesto.descripcion || ""}</td>                
+                <td>${repuesto.precio_neto ?? repuesto.precio_venta ?? ""}</td>
                 <td>${repuesto.precio_venta ?? ""}</td>
-                <td>${repuesto.stock || ""}</td>
                 <td>
                     <button type="button" onclick="ver_repuesto(${indice})">Ver</button>
                     <button type="button" onclick="editar_repuesto(${indice})">Editar</button>
@@ -135,6 +134,11 @@ function ver_repuesto(indice) {
         return;
     }
 
+    const titulo = document.getElementById("detalleRepuestoTitulo");
+    if (titulo) {
+        titulo.textContent = repuesto.producto || "Detalle del repuesto";
+    }
+
     contenido.innerHTML = `
         <div class="detalle-item">
             <strong>Origen</strong>
@@ -163,6 +167,8 @@ function editar_repuesto(indice) {
 
     const inputIndice = document.getElementById("editarIndiceRepuesto");
     const origen = document.getElementById("editarOrigenRepuesto");
+    const precioNeto = document.getElementById("editarPrecioNetoRepuesto");
+    const precioVenta = document.getElementById("editarPrecioVentaRepuesto");
     const anotacionesRepuesto = document.getElementById("editarAnotacionesRepuesto");
     const anotacionesMarca = document.getElementById("editarAnotacionesMarca");
 
@@ -172,6 +178,14 @@ function editar_repuesto(indice) {
 
     if (origen) {
         origen.value = repuesto.origen || "";
+    }
+
+    if (precioNeto) {
+        precioNeto.value = repuesto.precio_neto ?? "";
+    }
+
+    if (precioVenta) {
+        precioVenta.value = repuesto.precio_venta ?? "";
     }
 
     if (anotacionesRepuesto) {
@@ -190,6 +204,8 @@ function guardar_detalle_repuesto(event) {
 
     const indice = Number(document.getElementById("editarIndiceRepuesto")?.value);
     const origen = document.getElementById("editarOrigenRepuesto")?.value || "";
+    const precioNeto = document.getElementById("editarPrecioNetoRepuesto")?.value || "";
+    const precioVenta = document.getElementById("editarPrecioVentaRepuesto")?.value || "";
     const anotacionesRepuesto = document.getElementById("editarAnotacionesRepuesto")?.value || "";
     const anotacionesMarca = document.getElementById("editarAnotacionesMarca")?.value || "";
 
@@ -207,6 +223,8 @@ function guardar_detalle_repuesto(event) {
     repuestos[indice] = {
         ...repuestoActual,
         origen,
+        precio_neto: precioNeto,
+        precio_venta: precioVenta,
         anotaciones_repuesto: anotacionesRepuesto,
         anotaciones_marca: anotacionesMarca
     };

@@ -1,0 +1,97 @@
+<section class="contenedor-principal">
+    <div class="contenedor listado ancho-completo">
+        <div class="listado-toolbar">
+            <h2>Listado de repuestos</h2>
+        </div>
+
+        <table id="tablaRepuestosN">
+            <thead>
+                <tr>
+                    <th>N° Ing</th>
+                    <th>Marca</th>
+                    <th>Matriz</th>
+                    <th>Producto</th>
+                    <th>Descripcion Interno</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+</section>
+
+<div id="modalNormalizar" class="modal-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="normalizarTitulo">
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="normalizarTitulo">Normalizacion de repuestos</h2>
+            <button type="button" class="modal-close" data-close-modal="modalNormalizar">x</button>
+        </div>
+
+        <form id="frmRepuesto">
+            <div class="fila fila-grid fila-grid-3">
+                <div class="campo">
+                    <label>Grupo</label>
+                    <select id="grupo">
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Marca</label>
+                    <select id="marca">
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label>Matriz</label>
+                    <select id="matriz">
+                        <option value="">Seleccione una marca...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="fila">
+                <label>Producto</label>
+                <input
+                    type="text"
+                    id="producto"
+                >
+            </div>
+
+            <input
+                type="hidden"
+                id="precio_venta"
+            >
+            <input
+                type="hidden"
+                id="numero_compra"
+            >
+
+            <div class="fila">
+                <label>Descripcion</label>
+                <input
+                    type="text"
+                    id="descripcion"
+                >
+            </div>
+
+            <div class="fila">
+                <label>Stock</label>
+                <input
+                    type="number"
+                    id="stock"
+                    value="1"
+                    min="1"
+                >
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="boton-secundario" data-close-modal="modalNormalizar">Cancelar</button>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

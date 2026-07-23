@@ -1,0 +1,61 @@
+<section class="contenedor-principal">
+    <div class="contenedor listado ancho-completo">
+        
+            <a href="javascript:history.back()"><< atrás</a>
+
+        <div class="listado-toolbar">
+            <h2>Proveedores</h2>
+            <button type="button" id="btnAbrirProveedor">Agregar nuevo</button>
+        </div>
+
+        <table id="tablaProveedores">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Sitio Web</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+
+
+    <h2>Data grupos repuestos</h2>
+    <ul id="lista-datos"></ul>        
+    </div>
+</section>
+
+<div id="modalProveedor" class="modal-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="proveedorTitulo">
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="proveedorTitulo">Nuevo proveedor</h2>
+            <button type="button" class="modal-close" data-close-modal="modalProveedor">x</button>
+        </div>
+
+        <form id="frmProveedor">
+            <input type="hidden" id="proveedorId">
+
+            <div class="fila">
+                <label for="proveedorNombre">Nombre</label>
+                <input type="text" id="proveedorNombre" required>
+            </div>
+
+            <div class="fila">
+                <label for="proveedorTelefono">Telefono</label>
+                <input type="text" id="proveedorTelefono" required>
+            </div>
+
+            <div class="fila">
+                <label for="proveedorWeb">Sitio web</label>
+                <input type="text" id="proveedorWeb" placeholder="refax.cl" required>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="boton-secundario" data-close-modal="modalProveedor">Cancelar</button>
+                <button type="submit">Guardar proveedor</button>
+            </div>
+        </form>
+    </div>
+</div>

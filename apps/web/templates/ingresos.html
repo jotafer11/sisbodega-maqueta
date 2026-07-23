@@ -1,0 +1,122 @@
+<section class="contenedor-principal">
+    <div class="contenedor listado ancho-completo">
+        <div class="listado-toolbar">
+            <h2>Ultimas compras</h2>
+            <button type="button" id="btnAbrirIngreso">Agregar nuevo</button>
+        </div>
+
+        <table id="tablaCompras">
+            <thead>
+                <tr>
+                    <th>N° Ing</th>
+                    <th>Producto</th>
+                    <th>Descripcion</th>
+                    <th>Und</th>
+                    <th>Proveedor</th>
+                    <th>$ Venta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+</section>
+
+<div id="modalIngreso" class="modal-overlay d-none" role="dialog" aria-modal="true" aria-labelledby="ingresoTitulo">
+    <div class="modal">
+        <div class="modal-header">
+            <h2 id="ingresoTitulo">Nueva compra</h2>
+            <button type="button" class="modal-close" data-close-modal="modalIngreso">x</button>
+        </div>
+
+        <form id="frmIngreso">
+            <div class="fila">
+                <!-- <label>N° Ing.</label> -->
+                <input
+                    type="text"
+                    id="codigo"
+                    readonly hidden
+                >
+            </div>
+
+            <div class="fila">
+                <label>Producto</label>
+                <input
+                    type="text"
+                    id="producto"
+                    required
+                >
+            </div>
+
+            <div class="fila">
+                <label>Descripcion</label>
+                <input
+                    type="text"
+                    id="descripcion"
+                    required
+                >
+            </div>
+
+            <div class="fila fila-grid fila-grid-2">
+                <div class="campo">
+                    <label>Unidades Solicitadas</label>
+                    <input
+                        type="number"
+                        id="stock"
+                        value="1"
+                        min="1"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label>Codigo OEM</label>
+                    <input
+                        type="text"
+                        id="codigo_oem"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="fila">
+                <label><a href="#proveedor">Proveedor</a> | Nuevo</label>
+                <select id="proveedor" required>
+                    <option value="">Seleccione...</option>
+                    <option value="Refax">Refax</option>
+                    <option value="Alsacia">Alsacia</option>
+                </select>
+            </div>
+
+            <div class="fila fila-grid fila-grid-2">
+                <div class="campo">
+                    <label>$ Neto</label>
+                    <input
+                        type="number"
+                        id="precio_neto"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label>$ Venta</label>
+                    <input
+                        type="number"
+                        id="precio_venta"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="boton-secundario" data-close-modal="modalIngreso">Cancelar</button>
+                <button type="submit">Guardar compra</button>
+            </div>
+        </form>
+    </div>
+</div>

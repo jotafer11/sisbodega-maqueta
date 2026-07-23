@@ -8,6 +8,7 @@ let repuestoEnEdicion = null;
 
 async function iniciarNormalizar(){
     bindNormalizarEvents();
+    bindNormalizarModalEvents();
     await Promise.all([
         cargarGrupos(),
         cargarMarcas()
@@ -15,6 +16,10 @@ async function iniciarNormalizar(){
     listar_repuestos_n();
     cargarPedidoPendiente();
     await cargarRepuestoEdicion();
+
+    if (pedidoPendiente || repuestoEnEdicion) {
+        abrirModal("modalNormalizar");
+    }
 }
 
 function bindNormalizarEvents() {
@@ -43,6 +48,37 @@ function bindNormalizarEvents() {
     if (formulario && !formulario.dataset.listenerNormalizar) {
         formulario.addEventListener("submit", guardar);
         formulario.dataset.listenerNormalizar = "1";
+    }
+}
+
+function bindNormalizarModalEvents() {
+    document.querySelectorAll("[data-close-modal='modalNormalizar']").forEach(boton => {
+        if (boton.dataset.listenerNormalizar) {
+            return;
+        }
+
+        boton.addEventListener("click", () => cerrarModal("modalNormalizar"));
+        boton.dataset.listenerNormalizar = "1";
+    });
+
+    const modal = document.getElementById("modalNormalizar");
+    if (modal && !modal.dataset.listenerNormalizar) {
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                cerrarModal("modalNormalizar");
+            }
+        });
+        modal.dataset.listenerNormalizar = "1";
+    }
+
+    if (!window.__normalizarEscapeListenerBound) {
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                cerrarModal("modalNormalizar");
+            }
+        });
+
+        window.__normalizarEscapeListenerBound = true;
     }
 }
 
@@ -141,6 +177,10 @@ async function cargarRepuestoEdicion() {
 
     if (producto && repuesto.producto) {
         producto.value = repuesto.producto;
+    }
+
+    if (!repuesto.oem && repuesto.producto) {
+        repuesto.oem = repuesto.producto;
     }
 
     if (precioVenta && repuesto.precio_venta !== undefined) {
@@ -302,6 +342,8 @@ function guardar(event) {
         matriz: matrizTexto,
 
         producto: producto.value,
+        oem: pedidoPendiente?.oem ?? pedidoPendiente?.producto ?? repuestoEnEdicion?.oem ?? repuestoEnEdicion?.producto ?? "",
+        precio_neto: pedidoPendiente?.precio_neto ?? repuestoEnEdicion?.precio_neto ?? "",
         precio_venta: precioVenta.value || "",
 
         descripcion: descripcion.value,
@@ -352,6 +394,7 @@ function guardar(event) {
 
     repuestoEnEdicion = null;
     localStorage.removeItem("repuesto_editar");
+    cerrarModal("modalNormalizar");
 
     listar_repuestos_n();
 
@@ -479,6 +522,7 @@ async function editar(index){
 
     // Stock
     stock.value = repuesto.stock;
+    abrirModal("modalNormalizar");
 
 }
 

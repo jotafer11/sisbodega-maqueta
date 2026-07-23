@@ -1,30 +1,40 @@
-const pageTitle = "JS Single Page Application Router";
+const pageTitle = "kardex taller";
 // create an object that maps the url to the template, title, and description
 const routes = {
 	/*
 	404: {
-		template: "/templates/404.html",
+		template: "templates/404.html",
 		title: "404 | " + pageTitle,
 		description: "Page not found",
 	}, */
 	"/": {
-		template: "/templates/index.html",
+		template: "templates/index.html",
 		title: "Home | " + pageTitle,
 		description: "This is the home page",
 	},
 	"ingresar": {
-		template: "/templates/ingresos.html",
+		template: "templates/ingresos.html",
 		title: "Ingresos | " + pageTitle,
 		description: "Ingresos Page",
 	},
 	normalizar: {
-		template: "/templates/normalizar.html",
+		template: "templates/normalizar.html",
 		title: "Normalizar | " + pageTitle,
 		description: "Normalizar page",
-	},		
+	},
+	proveedor: {
+		template: "templates/proveedor.html",
+		title: "Proveedores | " + pageTitle,
+		description: "Proveedores page",
+	},
+	modelos: {
+		template: "templates/modelos.html",
+		title: "Modelos | " + pageTitle,
+		description: "Modelos page",
+	},				
 	about: {
-		template: "/templates/about.html",
-		title: "About Us | " + pageTitle,
+		template: "templates/about.html",
+		title: "Leeme | " + pageTitle,
 		description: "This is the about page",
 	},
 };
@@ -33,6 +43,7 @@ const routeInitializers = {
 	"/": () => iniciarInicio(),
 	ingresar: () => iniciarIngresos(),
 	normalizar: () => iniciarNormalizar(),
+	proveedor: () => iniciarProveedores(),
 };
 
 // create a function that watches the url and calls the urlLocationHandler

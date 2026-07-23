@@ -1,5 +1,6 @@
 function iniciarIngresos(){
     listar_compras();
+    bindIngresoModalEvents();
 
     const formulario = document.getElementById("frmIngreso");
     if (formulario) {
@@ -7,6 +8,59 @@ function iniciarIngresos(){
     }
 
     mostrarSiguienteNumeroCompra();
+}
+
+function bindIngresoModalEvents() {
+    const botonAbrir = document.getElementById("btnAbrirIngreso");
+    if (botonAbrir && !botonAbrir.dataset.listenerIngreso) {
+        botonAbrir.addEventListener("click", abrirModalIngreso);
+        botonAbrir.dataset.listenerIngreso = "1";
+    }
+
+    document.querySelectorAll("[data-close-modal='modalIngreso']").forEach(boton => {
+        if (boton.dataset.listenerIngreso) {
+            return;
+        }
+
+        boton.addEventListener("click", () => cerrarModal("modalIngreso"));
+        boton.dataset.listenerIngreso = "1";
+    });
+
+    const modal = document.getElementById("modalIngreso");
+    if (modal && !modal.dataset.listenerIngreso) {
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                cerrarModal("modalIngreso");
+            }
+        });
+        modal.dataset.listenerIngreso = "1";
+    }
+
+    if (!window.__ingresosEscapeListenerBound) {
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                cerrarModal("modalIngreso");
+            }
+        });
+
+        window.__ingresosEscapeListenerBound = true;
+    }
+}
+
+function abrirModalIngreso() {
+    const formulario = document.getElementById("frmIngreso");
+    if (formulario) {
+        formulario.reset();
+    }
+
+    mostrarSiguienteNumeroCompra();
+
+    const stock = document.getElementById("stock");
+    if (stock) {
+        stock.value = "1";
+    }
+
+    abrirModal("modalIngreso");
 }
 
 
@@ -63,7 +117,9 @@ function guardar_compra(event) {
     const descripcion = document.getElementById("descripcion");
     const stock = document.getElementById("stock");
     const proveedor = document.getElementById("proveedor");
+    const precioNeto = document.getElementById("precio_neto");
     const precioVenta = document.getElementById("precio_venta");
+    const codigoOem = document.getElementById("codigo_oem");
 
     const numeroCompra = Number(codigo.value) || obtenerSiguienteNumeroCompra();
 
@@ -72,7 +128,9 @@ function guardar_compra(event) {
         producto: producto.value,        
         descripcion: descripcion.value.trim(),
         stock: stock.value,
+        oem: codigoOem.value.trim(),
         proveedor: proveedor.value,
+        precio_neto: precioNeto.value,
         precio_venta: precioVenta.value
     };
 
@@ -82,6 +140,7 @@ function guardar_compra(event) {
 
     mostrarSnackbar("Compra guardada");
     listar_compras();
+    cerrarModal("modalIngreso");
 
     document.getElementById("frmIngreso")?.reset();
     mostrarSiguienteNumeroCompra();

@@ -9,6 +9,13 @@
   {
     "id": 102,
     "marca_id": 1,
+    "modelo": "Sentra",
+    "motor": "1.1",
+    "año": "2010"
+  },  
+  {
+    "id": 103,
+    "marca_id": 1,
     "modelo": "Terrano",
     "motor": "1.8",
     "año": "2010"
@@ -27,6 +34,13 @@
     "motor": "1.4",
     "año": "2010"
   },
+  {
+    "id": 401,
+    "marca_id": 4,
+    "modelo": "Mitsubishi",
+    "motor": "1.8",
+    "año": "2018"
+  },  
   {
     "id": 601,
     "marca_id": 6,

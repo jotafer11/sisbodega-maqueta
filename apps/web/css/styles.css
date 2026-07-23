@@ -76,12 +76,9 @@ h2 {
     width: 100%;
 }
 
-.contenedor.formulario {
-  flex: 0 0 20%; /* Ocupa 4 de 12 columnas */
-}
-
-.contenedor.listado {
-  flex: 0 0 80%; /* Ocupa 8 de 12 columnas */
+.contenedor.listado.ancho-completo {
+  flex: 1 1 100%;
+  width: 100%;
 }
 
 .contenedor.listado.inicio {
@@ -109,6 +106,30 @@ h2 {
 
 .fila {
     margin-bottom:15px;
+}
+
+.fila-grid {
+    display: grid;
+    gap: 14px;
+}
+
+.fila-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fila-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.campo {
+    min-width: 0;
+}
+
+@media (max-width: 720px) {
+    .fila-grid-2,
+    .fila-grid-3 {
+        grid-template-columns: 1fr;
+    }
 }
 
 label {
@@ -201,6 +222,10 @@ table th {
     padding: 20px;
 }
 
+#modalIngreso .modal {
+    width: min(920px, 100%);
+}
+
 .modal-header {
     display: flex;
     align-items: center;
@@ -247,6 +272,18 @@ table th {
     justify-content: flex-end;
     gap: 10px;
     margin-top: 16px;
+}
+
+.listado-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.listado-toolbar h2 {
+    margin: 0;
 }
 
 .boton-secundario {

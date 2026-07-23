@@ -1,26 +1,35 @@
 # SisBodega 
 
-CRUD Demo de un sistema de bodega para un taller rectificador de culatas. (repuestos de culata) con una sencilla tabla en html.
+Sistema de bodega para un taller rectificador de culatas. (repuestos de culata) con entradas y salidas de material.
 
-## Stack — 100% JavaScript 
+## Stack
 
-    - Web: Javascript
-    - Estilos: CSS
-    - API: Archivos.json demo
-    - Base de datos: localstorage
+    - Web: Javascript con hash router
+    - API: NodeJS
+    - Base de datos: PostgreSQL
+    - ORM:
+    - Monorepo:
+
+## Estructura Repo
+
+└── apps/
+    ├── api/        # NodeJS (REST API)
+    └── web/        # Javascript vanilla 
+
 
 ## Setup local
 
 ### Requisitos
 
-- VSCode
-- Live Server
-- .
+- Node.js
 
 ### Instalacion
 
 ```
 
-# Instalar LiveServer
+# Instalar dependencias
+
+npm install en la terminal para que Node.js lea el archivo package.json y descargue las librerías necesarias automáticamente.
+
 
 ```
